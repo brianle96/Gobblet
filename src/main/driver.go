@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/objects"
+	o "github.com/objects"
 )
 
 func main() {
-	PlayerOne := objects.Player{Name: "Brian"}
-	playerOneName := PlayerOne.GetPlayerName()
-	fmt.Println(playerOneName)
+	player1, player2 := o.GeneratePair("Brian","Erin")
 	//
-	PlayerTwo := objects.Player{Name: "Erin"}
-	playerTwoName := PlayerTwo.GetPlayerName()
+	playerOneName := player1.GetPlayerName()
+	playerTwoName := player2.GetPlayerName()
+	fmt.Println(playerOneName)
 	fmt.Println(playerTwoName)
+	//fmt.Println(player1.GetPlayerTeam())
+	//fmt.Println(player2.GetPlayerTeam())
 }
