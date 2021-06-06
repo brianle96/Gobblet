@@ -61,3 +61,25 @@ func InitBoard(turn string) Board {
 	gameBoard.Grid = tempBoard
 	return gameBoard
 }
+//
+//
+func CheckForWin() {
+	for i :=1 ; i<= 3; i++ {
+		
+	}
+}
+//
+//
+func CheckHorizontal() bool {
+	return true
+}
+//
+//
+func CheckVertical() bool {
+	return true
+}
+//
+//
+func CheckDiagonal() bool {
+	return true
+}
