@@ -1,3 +1,21 @@
 This is a personal project based on the following game found on Reddit
 
 https://www.reddit.com/r/nextfuckinglevel/comments/nkupcu/upgraded_tic_tac_toe/?utm_medium=android_app&utm_source=share
+
+Some ideas for implementation
+
+Objects
+    Player
+        |_> currentPieces
+        |_> MakeMove()
+    Piece
+        |_> size
+        |_> color/team/player?
+    Board
+        |_> isGameOver()
+        |_> currBoardStatus
+    Move
+        |_> isLegalMove(player, board)
+            |_> can piece overtake this piece
+            |_> does player have the piece to make Move
+        |_> returnNewBoardStatus()
