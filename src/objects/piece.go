@@ -1,6 +1,6 @@
 package objects
 
 type Piece struct {
-	color bool
-	size int
+	Color string
+	Size int
 }
