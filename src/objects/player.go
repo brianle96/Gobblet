@@ -44,7 +44,7 @@ func (p Player) GetPlayerTeam() []Piece {
 //
 //
 func (p Player) GetMoveFromHuman() Move {
-	fmt.Println("\nEnter your move (x,y,size):")
+	fmt.Println("\n\nEnter your move (x,y,size):")
 
 	var reader = bufio.NewReader(os.Stdin)
 	message, _ := reader.ReadString('\n')

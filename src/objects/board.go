@@ -18,14 +18,20 @@ func (b Board) GetCurrentBoard() [3][3] Piece {
 }
 //
 //[row][col]
-func (b Board) UpdateBoard(move Move) [3][3]Piece {
+func (b Board) UpdateBoard(move Move) Board {
 	piece := Piece{Color: move.Color, Size: move.Size}
 	b.Grid[move.Row][move.Col] = piece
-	return b.Grid
+	if move.Color == "brown" {
+		b.Turn = "green"
+	} else {
+		b.Turn = "brown"
+	}
+	return b
 }
 //
 //
 func (b Board) PrintCurrentBoard() {
+	fmt.Println()
 	for i := 0; i < 3; i++ {
 		for j := 0; j < 3; j++ {
 			currColor := b.Grid[i][j].Color
@@ -47,7 +53,7 @@ func (b Board) PrintCurrentBoard() {
 //
 //
 func InitBoard(turn string) Board {
-	gameBoard := Board{}
+	gameBoard := Board{Turn: turn}
 	blankPiece := Piece{Color: "empty", Size: 0}
 	tempBoard := [3][3] Piece {{blankPiece,blankPiece,blankPiece},
 							   {blankPiece,blankPiece,blankPiece},
