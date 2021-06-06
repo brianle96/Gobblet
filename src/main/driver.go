@@ -14,6 +14,13 @@ func main() {
 	fmt.Println(playerTwoName)
 	//
 	//
-	GameBoard := o.InitBoard()
+	GameBoard := o.InitBoard("brown")
 	GameBoard.PrintCurrentBoard()
+	//
+	currMove := Player1.GetMoveFromHuman()
+	//
+	if o.IsLegalMove(currMove) {
+		GameBoard.Grid = GameBoard.UpdateBoard(currMove)
+		GameBoard.PrintCurrentBoard()
+	}
 }

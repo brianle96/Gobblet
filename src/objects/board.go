@@ -2,7 +2,6 @@ package objects
 
 import (
 	"fmt"
-
 	"strconv"
 )
 
@@ -10,6 +9,19 @@ import (
 //
 type Board struct {
 	Grid [3][3] Piece
+	Turn string
+}
+//
+//
+func (b Board) GetCurrentBoard() [3][3] Piece {
+	return b.Grid
+}
+//
+//[row][col]
+func (b Board) UpdateBoard(move Move) [3][3]Piece {
+	piece := Piece{Color: move.Color, Size: move.Size}
+	b.Grid[move.Row][move.Col] = piece
+	return b.Grid
 }
 //
 //
@@ -26,7 +38,7 @@ func (b Board) PrintCurrentBoard() {
 		}
 		//
 		if i != 2 {
-			fmt.Println("\n-----------")
+			fmt.Println("\n-----------------------")
 		} else {
 			fmt.Println()
 		}
@@ -34,9 +46,9 @@ func (b Board) PrintCurrentBoard() {
 }
 //
 //
-func InitBoard() Board {
+func InitBoard(turn string) Board {
 	gameBoard := Board{}
-	blankPiece := Piece{Color: "e", Size: 0}
+	blankPiece := Piece{Color: "empty", Size: 0}
 	tempBoard := [3][3] Piece {{blankPiece,blankPiece,blankPiece},
 							   {blankPiece,blankPiece,blankPiece},
 							   {blankPiece,blankPiece,blankPiece}}
