@@ -21,7 +21,7 @@ func main() {
 	GameBoard.PrintCurrentBoard()
 	//
 	for winCondition == false {
-		//
+		// on top of currMove, do currPlayer
 		currMove := o.Move{}
 		fmt.Printf("\n%v's Move!",GameBoard.Turn)
 		if GameBoard.Turn == "brown" {
@@ -31,6 +31,7 @@ func main() {
 		}
 		//
 		if o.IsLegalMove(currMove) {
+			// should add method that modifies Player's team
 			GameBoard = GameBoard.UpdateBoard(currMove)
 			GameBoard.PrintCurrentBoard()
 		}
