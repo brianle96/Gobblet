@@ -52,6 +52,74 @@ func (b Board) PrintCurrentBoard() {
 }
 //
 //
+func (b Board) CheckForWin() bool {
+	winCondition := false
+	//
+	if b.CheckLeftDiagonal() {
+		winCondition = true
+	} else if b.CheckRightDiagonal() {
+		winCondition = true
+	}
+	//
+	for i :=0 ; i<= 2; i++ {
+		if b.CheckHorizontal(i) {
+			winCondition = true
+		} else if b.CheckVertical(i) {
+			winCondition = true
+		}
+	}
+	return winCondition
+}
+//
+//
+func (b Board) CheckHorizontal(i int) bool {
+	winCondition := false
+	first := b.Grid[i][0].Color
+	second := b.Grid[i][1].Color
+	third := b.Grid[i][2].Color
+	if first == second && second == third && first == third && first != "empty" {
+		winCondition = true
+	}
+	return winCondition
+}
+//
+//
+func (b Board) CheckVertical(i int) bool {
+	winCondition := false
+	first := b.Grid[0][i].Color
+	second := b.Grid[1][i].Color
+	third := b.Grid[2][i].Color
+	if first == second && second == third && first == third && first != "empty" {
+		winCondition = true
+	}
+	return winCondition
+}
+//
+//
+func (b Board) CheckLeftDiagonal() bool {
+	winCondition := false
+	first := b.Grid[0][0].Color
+	second := b.Grid[1][1].Color
+	third := b.Grid[2][2].Color
+	if first == second && second == third && first == third && first != "empty" {
+		winCondition = true
+	}
+	return winCondition
+}
+//
+//
+func (b Board) CheckRightDiagonal() bool {
+	winCondition := false
+	first := b.Grid[0][2].Color
+	second := b.Grid[1][1].Color
+	third := b.Grid[2][0].Color
+	if first == second && second == third && first == third && first != "empty" {
+		winCondition = true
+	}
+	return winCondition
+}
+//
+//
 func InitBoard(turn string) Board {
 	gameBoard := Board{Turn: turn}
 	blankPiece := Piece{Color: "empty", Size: 0}
@@ -60,26 +128,4 @@ func InitBoard(turn string) Board {
 							   {blankPiece,blankPiece,blankPiece}}
 	gameBoard.Grid = tempBoard
 	return gameBoard
-}
-//
-//
-func CheckForWin() {
-	for i :=1 ; i<= 3; i++ {
-		
-	}
-}
-//
-//
-func CheckHorizontal() bool {
-	return true
-}
-//
-//
-func CheckVertical() bool {
-	return true
-}
-//
-//
-func CheckDiagonal() bool {
-	return true
 }
