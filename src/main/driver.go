@@ -1,10 +1,10 @@
 package main
-
+//
 import (
 	"fmt"
 	o "github.com/objects"
 )
-
+//
 func main() {
 	//
 	winCondition := false
@@ -18,6 +18,8 @@ func main() {
 		// on top of currMove, do currPlayer
 		currPlayer := o.Player{}
 		currMove := o.Move{}
+		//
+		//
 		GameBoard.PrintCurrentBoard()
 		fmt.Printf("\n%v's Move!",GameBoard.Turn)
 		if GameBoard.Turn == "brown" {
@@ -26,6 +28,7 @@ func main() {
 			currPlayer = Player2
 		}
 		fmt.Printf("\n%v's Team: %v", currPlayer.Color, currPlayer.Team)
+		//
 		//
 		currMove = currPlayer.GetMoveFromHuman()
 		//
@@ -43,15 +46,21 @@ func main() {
 		} else {
 			fmt.Printf("***********\nInvalid move!\n***********\n")
 		}
+		//
+		//
 		winCondition = GameBoard.CheckForWin()
 		if Player1.Team == nil && Player2.Team == nil {
-			fmt.Printf("\nTIE\n")
+			break
 		}
 	}
+	//
 	GameBoard.PrintCurrentBoard()
-	if GameBoard.Turn == "brown" {
+	//
+	if Player1.Team == nil && Player2.Team == nil {
+		fmt.Printf("\nTIE\n")
+	} else if GameBoard.Turn == "brown" {
 		fmt.Printf("\nGreen Won!\n")
-	} else {
+	} else if GameBoard.Turn == "green"{
 		fmt.Printf("\nBrown Won!\n")
 	}
 }
