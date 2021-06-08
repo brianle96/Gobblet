@@ -2,20 +2,16 @@ This is a personal project based on the following game found on Reddit
 
 https://www.reddit.com/r/nextfuckinglevel/comments/nkupcu/upgraded_tic_tac_toe/?utm_medium=android_app&utm_source=share
 
-Some ideas for implementation
+Rules:
 
-Objects
-    Player
-        |_> currentPieces
-        |_> MakeMove()
-    Piece
-        |_> size
-        |_> color/team/player?
-    Board
-        |_> isGameOver()
-        |_> currBoardStatus
-    Move
-        |_> isLegalMove(player, board)
-            |_> can piece overtake this piece
-            |_> does player have the piece to make Move
-        |_> returnNewBoardStatus()
+- Be the first player to align 3 gobblets in a row
+
+- In turns, players can either put a new gobblets
+  already on the board to any empty space or 
+  gobble up any smaller size enemy gobblet with a 
+  bigger gobblet already in play 
+
+- If you place all 6 of your pieces on the board
+  before the game is over, you simply continue playing
+  with the pieces on the board until a winner
+  or a draw is declared
