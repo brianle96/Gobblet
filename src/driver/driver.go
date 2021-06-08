@@ -51,9 +51,9 @@ func main() {
 	GameBoard.PrintCurrentBoard()
 	//
 	if GameBoard.EmptyTeams() {
-		fmt.Println("TIE! TRY AGAIN NEXT TIME")
+		fmt.Println("\nRAN OUT OF PIECES! TIE! TRY AGAIN NEXT TIME")
 	} else if noMoreMoves {
-		fmt.Println("TIE! TRY AGAIN NEXT TIME")
+		fmt.Println("\nNO MORE VALID MOVES! TIE! TRY AGAIN NEXT TIME")
 	} else if GameBoard.Turn {
 		// since the "current" turn is on true, it would
 		// mean that the last move made was false
